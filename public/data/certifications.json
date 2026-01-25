@@ -1,0 +1,38 @@
+[
+  {
+    "title": "CMckinsey Forwaaed learning program",
+    "issuer": "Mckinsey",
+    "issue_date": "2023-05-15",
+    "start_date": "2023-01-01",
+    "credential_url": "https://www.credly.com/badges/97628f76-c248-46be-bcc3-e80d1de6d62a/linked_in_profile",
+    "image_url": "",
+    "logo_url": "https://share.google/8o88LGvhsQgjzU3AR"
+  },
+  {
+    "title": "CompTIA Security+",
+    "issuer": "CompTIA",
+    "issue_date": "2024-02-20",
+    "start_date": "2023-11-01",
+    "credential_url": "#",
+    "image_url": "",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/CompTIA_Security%2B_Logo.svg/1200px-CompTIA_Security%2B_Logo.svg.png"
+  },
+  {
+    "title": "Certified Ethical Hacker (CEH)",
+    "issuer": "EC-Council",
+    "issue_date": "2024-06-10",
+    "start_date": "2024-03-01",
+    "credential_url": "#",
+    "image_url": "",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/EC-Council_logo.jpg"
+  },
+  {
+    "title": "AWS Certified Solutions Architect",
+    "issuer": "Amazon Web Services",
+    "issue_date": "2025-01-01",
+    "start_date": "2024-08-01",
+    "credential_url": "#",
+    "image_url": "",
+    "logo_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+  }
+]

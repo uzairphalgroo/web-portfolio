@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes bounce-x {
+
+  0%,
+  100% {
+    transform: translateX(25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1s infinite;
+}
+
+@keyframes rgb-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-rgb-bg {
+  background: linear-gradient(45deg,
+      rgba(255, 0, 0, 0.15),
+      rgba(255, 115, 0, 0.15),
+      rgba(255, 251, 0, 0.15),
+      rgba(72, 255, 0, 0.15),
+      rgba(0, 255, 213, 0.15),
+      rgba(0, 43, 255, 0.15),
+      rgba(122, 0, 255, 0.15),
+      rgba(255, 0, 200, 0.15),
+      rgba(255, 0, 0, 0.15));
+  background-size: 400% 400%;
+  animation: rgb-flow 15s ease infinite;
+}
+
+.animate-breezy-bg {
+  background: linear-gradient(-45deg, #000000, #0c0a20, #041412, #100520, #140408, #000000);
+  background-size: 400% 400%;
+  animation: rgb-flow 20s ease infinite;
+}
+
+.separator-gradient {
+  background: linear-gradient(90deg, transparent, #312e81, #0f766e, #4c1d95, #831843, transparent);
+  background-size: 200% 200%;
+  animation: rgb-flow 5s linear infinite;
+  opacity: 0.8;
+}
+
+/* RGB Border Effect */
+.rgb-border {
+  position: relative;
+  z-index: 10;
+  border: none;
+}
+
+.rgb-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  background-size: 400%;
+  border-radius: inherit;
+  animation: rgb-flow 20s linear infinite;
+
+  /* Spotlight Mask */
+  opacity: 0;
+  /* Hidden by default until hover */
+  -webkit-mask-image: radial-gradient(circle 350px at var(--x) var(--y), black 0%, transparent 100%);
+  mask-image: radial-gradient(circle 350px at var(--x) var(--y), black 0%, transparent 100%);
+  transition: opacity 0.5s ease;
+  /* Smooth fade in/out */
+}
+
+/* Same for the inner glow layer if we want it */
+.rgb-border::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  background-size: 400%;
+  border-radius: inherit;
+  animation: rgb-flow 20s linear infinite;
+
+  /* Spotlight Mask + Blur */
+  opacity: 0;
+  filter: blur(20px);
+  -webkit-mask-image: radial-gradient(circle 350px at var(--x) var(--y), black 0%, transparent 100%);
+  mask-image: radial-gradient(circle 350px at var(--x) var(--y), black 0%, transparent 100%);
+  transition: opacity 0.5s ease;
+}
+
+.rgb-border:hover::before,
+.rgb-border:hover::after {
+  opacity: 1;
+  /* Reveal the masked spotlight on hover */
+}
+
+/* Enhanced Hover/Press Effects */
+.rgb-border:hover::after,
+.rgb-border.always-active:hover::after {
+  filter: blur(25px);
+  /* Increased glow on hover */
+  transform: scale(1.02);
+  /* Slight scale up of glow */
+  transition: all 0.3s ease-in-out;
+}
+
+.rgb-border:active::after,
+.rgb-border.always-active:active::after {
+  filter: blur(10px);
+  /* Tighter glow on press */
+  transform: scale(0.98);
+  /* Slight shrink feedback */
+  transition: all 0.1s ease-in-out;
+}
+
+.rgb-border:hover .rgb-border-inner {
+  background: rgba(0, 0, 0, 0.5);
+  /* Maintain transparency on hover */
+}
+
+.rgb-border:active {
+  transform: scale(0.99);
+  /* Tactile press feedback */
+  transition: transform 0.1s;
+}
+
+.rgb-border-inner {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animated Text Gradient */
+.animate-text-gradient {
+  background-size: 300% 300%;
+  animation: rgb-flow 8s ease infinite;
+}
+
+/* RGB Rainbow Text Gradient */
+.text-rgb-gradient {
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  background-size: 300% 300%;
+  animation: rgb-flow 8s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* RGB Text Glow (Edge) Effect */
+.rgb-text-glow {
+  transition: text-shadow 0.3s ease;
+}
+
+.rgb-text-glow:hover {
+  text-shadow:
+    0 0 5px rgba(255, 0, 0, 0.8),
+    0 0 10px rgba(255, 115, 0, 0.8),
+    0 0 15px rgba(255, 251, 0, 0.8),
+    0 0 20px rgba(0, 255, 213, 0.8),
+    0 0 25px rgba(0, 43, 255, 0.8),
+    0 0 35px rgba(255, 0, 200, 0.8);
+}
+
+/* Hover Reveal RGB Text */
+/* Gradient Stroke Text Effect */
+/* Gradient Glow Text Effect (Pure Dispersion) */
+.hover-stroke-gradient {
+  position: relative;
+  /* Default text color (white for Name, gray-400 for Title) */
+  color: inherit;
+  z-index: 1;
+}
+
+/* Explicit default colors */
+h1.hover-stroke-gradient {
+  color: white;
+}
+
+p.hover-stroke-gradient {
+  color: #9ca3af;
+  /* Gray-400 */
+}
+
+.hover-stroke-gradient:hover::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  /* The Gradient */
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  background-size: 300% 300%;
+  animation: rgb-flow 8s linear infinite;
+
+  /* Pure Glow Magic (No Stroke) */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Soft Dispersion */
+  filter: blur(12px);
+  transform: scale(1.05);
+
+  /* Spotlight Mask with Dark Center */
+  opacity: 1;
+  /* Center is transparent (dark/no glow), moves to black (glow) then transparent (fade out) */
+  -webkit-mask-image: radial-gradient(circle 180px at var(--x) var(--y), transparent 0%, black 30%, black 70%, transparent 100%);
+  mask-image: radial-gradient(circle 180px at var(--x) var(--y), transparent 0%, black 30%, black 70%, transparent 100%);
+  transition: opacity 0.2s ease;
+}
+
+/* Mobile/Touch Fallback: Disable spotlight hiding on touch devices */
+@media (hover: none) {
+
+  .rgb-border::before,
+  .rgb-border::after,
+  .hover-stroke-gradient::before {
+    opacity: 1 !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+
+  /* Ensure text is readable without hover */
+  .hover-stroke-gradient::before {
+    opacity: 0.8 !important;
+  }
+}
