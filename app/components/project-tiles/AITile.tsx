@@ -3,29 +3,34 @@ import { motion } from "framer-motion";
 
 export function AITile() {
     // Generate static nodes coordinates
-    const nodes = useMemo(() => {
-        return [...Array(12)].map((_, i) => ({
+    const [nodes, setNodes] = React.useState<any[]>([]);
+    const [connections, setConnections] = React.useState<any[]>([]);
+
+    React.useEffect(() => {
+        // Generate nodes only on client side to avoid hydration mismatch
+        const newNodes = [...Array(12)].map((_, i) => ({
             id: i,
             x: Math.random() * 100,
             y: Math.random() * 100,
             size: 2 + Math.random() * 3,
-            delay: Math.random() * 2
+            delay: Math.random() * 2,
+            duration: 2 + Math.random() // Store duration here
         }));
-    }, []);
+        setNodes(newNodes);
 
-    // Generate connections
-    const connections = useMemo(() => {
-        const lines: { start: number, end: number }[] = [];
-        nodes.forEach((node, i) => {
-            nodes.slice(i + 1).forEach((otherNode, j) => {
-                const distance = Math.hypot(node.x - otherNode.x, node.y - otherNode.y);
-                if (distance < 40) { // Connect nearby nodes
-                    lines.push({ start: i, end: i + 1 + j });
+        // Generate connections
+        const newConnections: { start: number, end: number }[] = [];
+        newNodes.forEach((node, i) => {
+            newNodes.slice(i + 1).forEach((otherNode, j) => {
+                const distance = Math.hypot(node.x - otherNode.x, otherNode.y - node.y); // Fix hypot args
+                // Simple distance check might be tricky with random coords, just picking some neighbors
+                if (distance < 40) {
+                    newConnections.push({ start: i, end: i + 1 + j });
                 }
             });
         });
-        return lines.slice(0, 15); // Limit connections for performance
-    }, [nodes]);
+        setConnections(newConnections.slice(0, 15));
+    }, []);
 
     return (
         <div className="absolute inset-0 w-full h-full bg-slate-950 overflow-hidden">
@@ -53,20 +58,20 @@ export function AITile() {
                                         attributeName="cx"
                                         from={`${start.x}%`}
                                         to={`${end.x}%`}
-                                        dur={`${2 + Math.random()}s`}
+                                        dur={`${start.duration}s`}
                                         repeatCount="indefinite"
                                     />
                                     <animate
                                         attributeName="cy"
                                         from={`${start.y}%`}
                                         to={`${end.y}%`}
-                                        dur={`${2 + Math.random()}s`}
+                                        dur={`${start.duration}s`}
                                         repeatCount="indefinite"
                                     />
                                     <animate
                                         attributeName="opacity"
                                         values="0;1;0"
-                                        dur={`${2 + Math.random()}s`}
+                                        dur={`${start.duration}s`}
                                         repeatCount="indefinite"
                                     />
                                 </circle>

@@ -28,7 +28,7 @@ export default function AboutPage() {
                     </Link>
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 text-rgb-gradient">About Me</h1>
                     <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                        A dedicated Engineer and Cybersecurity Analyst passionate about building secure, intelligent, and scalable digital solutions.
+                        A dedicated Engineer, Developer, and Analyst passionate about building secure, intelligent, and scalable solutions across Cybersecurity, AI, and Fintech.
                     </p>
                 </motion.div>
 
@@ -43,10 +43,10 @@ export default function AboutPage() {
                         <h2 className="text-2xl font-bold text-white mb-4 border-l-4 border-indigo-500 pl-4">Who I Am</h2>
                         <div className="space-y-4 text-gray-300 leading-relaxed">
                             <p>
-                                I am Shah Uzair Phalgroo, an engineering student with a robust background in Network Engineering, Network Administration, Cybersecurity, and Web Development. My journey involves a constant pursuit of knowledge in protecting digital infrastructures while creating engaging web experiences.
+                                I am Shah Uzair Phalgroo, an engineering student with a robust background in Network Engineering, Cybersecurity, Web Development, and Financial Technology. My journey involves a constant pursuit of knowledge in protecting digital infrastructures while creating intelligent AI-driven solutions.
                             </p>
                             <p>
-                                I specialize in securing networks, identifying vulnerabilities, and developing full-stack web applications. My work bridges the gap between functional design and rigorous security protocols.
+                                I specialize in <strong>Cybersecurity</strong>, <strong>Web Development</strong>, <strong>AI</strong>, and <strong>Fintech</strong>. My work bridges the gap between functional design, rigorous security, and intelligent automation.
                             </p>
                         </div>
                     </motion.section>
@@ -60,16 +60,20 @@ export default function AboutPage() {
                         <h2 className="text-2xl font-bold text-white mb-4 border-l-4 border-emerald-500 pl-4">What I Do</h2>
                         <ul className="space-y-4">
                             <li className="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-colors">
-                                <h3 className="font-bold text-white text-lg mb-1">Cybersecurity Analysis</h3>
-                                <p className="text-sm text-gray-400">Vulnerability assessment, network scanning, and secure systems architecture.</p>
+                                <h3 className="font-bold text-white text-lg mb-1">Cybersecurity & Network Engineering</h3>
+                                <p className="text-sm text-gray-400">Vulnerability assessment, penetration testing, infrastructure hardening, and Cisco networking.</p>
                             </li>
                             <li className="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-colors">
-                                <h3 className="font-bold text-white text-lg mb-1">Network Engineering</h3>
-                                <p className="text-sm text-gray-400">Router configuration (Cisco), protocol management, and infrastructure optimization.</p>
+                                <h3 className="font-bold text-white text-lg mb-1">Modern Web Development</h3>
+                                <p className="text-sm text-gray-400">Building responsive, high-performance applications with Next.js, React, Tailwind, and Framer Motion.</p>
                             </li>
                             <li className="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-colors">
-                                <h3 className="font-bold text-white text-lg mb-1">Web Development</h3>
-                                <p className="text-sm text-gray-400">Building modern, responsive web applications with Next.js, React, and Tailwind CSS.</p>
+                                <h3 className="font-bold text-white text-lg mb-1">Artificial Intelligence</h3>
+                                <p className="text-sm text-gray-400">Developing RAG applications, training ML models, and integrating LLMs into business logic.</p>
+                            </li>
+                            <li className="bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-colors">
+                                <h3 className="font-bold text-white text-lg mb-1">Fintech & Algorithmic Trading</h3>
+                                <p className="text-sm text-gray-400">Quantitative analysis, building trading bots, and secure financial data processing.</p>
                             </li>
                         </ul>
                     </motion.section>

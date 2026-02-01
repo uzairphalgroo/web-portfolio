@@ -98,7 +98,7 @@ export default function Projects() {
                             >
                                 <div
                                     onMouseMove={handleMouseMove}
-                                    className="group/card rgb-border relative h-full w-full bg-black/40 transition-all duration-500 rounded-[2rem] cursor-pointer overflow-hidden border border-white/10"
+                                    className="group/card rgb-border relative h-full w-full bg-black/40 transition-all duration-500 rounded-[2rem] cursor-pointer border border-white/10"
                                 >
                                     <div className="rgb-border-inner absolute inset-0 overflow-hidden border-none backdrop-blur-md rounded-[2rem]">
 
@@ -138,7 +138,7 @@ export default function Projects() {
                             className="absolute top-4 left-1/2 -translate-x-1/2 z-20 cursor-pointer animate-bounce opacity-100 md:opacity-40 md:group-hover:opacity-100 transition-opacity duration-300 p-2"
                             aria-label="Scroll to previous project"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white drop-shadow-md bg-black/50 rounded-full backdrop-blur-sm rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white drop-shadow-md bg-black/50 rounded-full backdrop-blur-sm rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                             </svg>
                         </div>
@@ -151,7 +151,7 @@ export default function Projects() {
                             className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 cursor-pointer animate-bounce opacity-100 md:opacity-40 md:group-hover:opacity-100 transition-opacity duration-300 p-2"
                             aria-label="Scroll to next project"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white drop-shadow-md bg-black/50 rounded-full backdrop-blur-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white drop-shadow-md bg-black/50 rounded-full backdrop-blur-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                             </svg>
                         </div>

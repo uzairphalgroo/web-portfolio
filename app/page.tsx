@@ -6,17 +6,25 @@ import Projects from "./components/Projects";
 import Certifications from "./components/Certifications";
 import Footer from "./components/Footer";
 import SectionTransition from "./components/SectionTransition";
-
-import { useRef } from "react";
+import CinematicBackground from "./components/CinematicBackground";
+import WelcomeScreen from "./components/WelcomeScreen";
+import { useRef, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const introRef = useRef<HTMLElement>(null);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   return (
     <main className="min-h-screen text-[#ededed] relative">
+      <AnimatePresence>
+        {showWelcome && (
+          <WelcomeScreen onFinish={() => setShowWelcome(false)} />
+        )}
+      </AnimatePresence>
 
       {/* Fixed Background Layer */}
-      <div className="fixed inset-0 z-0 animate-breezy-bg" />
+      <CinematicBackground />
 
       {/* Scroll Section */}
       <section id="home" ref={introRef} className="relative z-10">

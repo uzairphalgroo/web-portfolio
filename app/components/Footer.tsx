@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { portfolioData } from "../data/portfolio";
+import Logo from "./Logo";
 
 export default function Footer() {
     return (
         <footer className="bg-[#0a0a0a] border-t border-white/10 py-12 px-6 relative z-30">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="text-center md:text-left">
-                    <h3 className="text-2xl font-bold text-white mb-2">Shah Uzair Phalgroo</h3>
-                    <p className="text-gray-400 text-sm">
-                        &copy; {new Date().getFullYear()} All rights reserved.
-                    </p>
+                <div className="flex flex-row items-center md:items-start gap-4">
+                    <Logo className="w-12 h-12" />
+                    <div className="text-left">
+                        <h3 className="text-xl font-bold text-white mb-0.5 leading-tight">Shah Uzair Phalgroo</h3>
+                        <p className="text-gray-400 text-xs">
+                            &copy; {new Date().getFullYear()} All rights reserved.
+                        </p>
+                    </div>
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-8">

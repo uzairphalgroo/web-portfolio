@@ -143,7 +143,19 @@ export default function Certifications() {
                                     If present, maybe show it? keeping it simple for now as requested. 
                                 */}
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                                {/* Gradient Overlays (Cyclic assignment based on index) */}
+                                <div className={`absolute inset-0 bg-gradient-to-br ${[
+                                    "from-blue-600 to-cyan-800",
+                                    "from-purple-600 to-indigo-900",
+                                    "from-emerald-600 to-green-900",
+                                    "from-red-600 to-rose-900",
+                                    "from-amber-600 to-orange-900",
+                                    "from-fuchsia-600 to-pink-900"
+                                ][i % 6]
+                                    } opacity-10 group-hover:opacity-30 transition-opacity duration-500 mix-blend-overlay`} />
+
+                                {/* Deep Bottom Shadow */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90" />
 
                                 <div className="absolute bottom-0 left-0 p-8 w-full z-10">
                                     <div className="flex justify-between items-end mb-2">
@@ -178,7 +190,7 @@ export default function Certifications() {
                         onClick={scrollPrev}
                         className="absolute top-1/2 left-0 md:left-[-20px] lg:left-[-40px] -translate-y-1/2 z-40 cursor-pointer transition-all duration-300 p-2 block text-white opacity-100 md:opacity-40 md:group-hover:opacity-100 hover:scale-110 active:scale-95 animate-bounce-x"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 drop-shadow-md bg-black/50 rounded-full backdrop-blur-sm rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 drop-shadow-md bg-black/50 rounded-full backdrop-blur-sm rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </div>
@@ -190,7 +202,7 @@ export default function Certifications() {
                         onClick={scrollNext}
                         className="absolute top-1/2 right-0 md:right-[-20px] lg:right-[-40px] -translate-y-1/2 z-40 cursor-pointer transition-all duration-300 p-2 block text-white opacity-100 md:opacity-40 md:group-hover:opacity-100 hover:scale-110 active:scale-95 animate-bounce-x"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 drop-shadow-md bg-black/50 rounded-full backdrop-blur-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 drop-shadow-md bg-black/50 rounded-full backdrop-blur-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </div>
