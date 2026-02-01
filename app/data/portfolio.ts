@@ -4,36 +4,39 @@ export const portfolioData = {
         name: "Shah Uzair Phalgroo",
         role: "Cybersecurity/Networking | Web Developer/Designing | A.I | Fintech",
         about: "Engineering student with experience in Network Engineering, Network Administration, Cybersecurity, and Web Development.",
-        email: "contact@example.com", // Placeholder, update if user provides
+        email: "ushah3887@gmail.com",
     },
     // Manual mapping for projects to add images/colors that GitHub doesn't have
-    projectConfig: {
-        "network-security-assessment": {
-            image: "/projects/network-security.png",
-            color: "from-red-500 to-orange-600",
-            category: "Cybersecurity"
+    projectCategories: [
+        {
+            title: "Cybersecurity & Network",
+            description: "Advanced network security assessments, penetration testing, and infrastructure hardening.",
+            image: "/projects/network-security.png", // Ensure you have this or a relevant image
+            link: "https://github.com/uzairphalgroo/cybersecurity-network",
+            color: "from-red-600 to-rose-900"
         },
-        "steganography-system": {
-            image: "/projects/steganography.png",
-            color: "from-blue-600 to-indigo-700",
-            category: "Cybersecurity"
-        },
-        "result-management-system": {
+        {
+            title: "Web Development & Design",
+            description: "Modern, responsive web applications built with Next.js, React, and Tailwind CSS.",
             image: "/projects/result-management.png",
-            color: "from-green-500 to-emerald-700",
-            category: "Web Development"
+            link: "https://github.com/uzairphalgroo/web-development",
+            color: "from-blue-600 to-cyan-800"
         },
-        "chatbot-song-recommender": {
-            image: "/projects/chatbot-music.png",
-            color: "from-purple-500 to-pink-500",
-            category: "AI & Web Dev"
-        },
-        "ai-rag-application": {
+        {
+            title: "Artificial Intelligence",
+            description: "AI/ML models, RAG applications, and intelligent automation systems.",
             image: "/projects/ai-rag.png",
-            color: "from-cyan-500 to-blue-500",
-            category: "AI & RAG"
+            link: "https://github.com/uzairphalgroo/ai",
+            color: "from-purple-600 to-indigo-900"
+        },
+        {
+            title: "Finance & Fintech",
+            description: "Financial analysis tools, algorithmic trading scripts, and banking solutions.",
+            image: "/projects/finance.png", // Need to ensure this exists or use fallback
+            link: "https://github.com/uzairphalgroo/finance",
+            color: "from-emerald-600 to-green-900"
         }
-    },
+    ],
     certifications: [
         {
             title: "mckinsey",

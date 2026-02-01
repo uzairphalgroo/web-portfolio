@@ -1,0 +1,132 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Filter Definitions for Neon Glow -->
+    <filter id="f_bloom" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- Wide Cyan Bloom -->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur_mid"/>
+      <feFlood flood-color="#00FFFF" flood-opacity="0.6" result="color_cyan"/>
+      <feComposite in="color_cyan" in2="blur_mid" operator="in" result="glow_cyan"/>
+      
+      <!-- Sharp Magenta Bloom -->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur_sharp"/>
+      <feFlood flood-color="#FF00FF" flood-opacity="0.8" result="color_magenta"/>
+      <feComposite in="color_magenta" in2="blur_sharp" operator="in" result="glow_magenta"/>
+      
+      <feMerge>
+        <feMergeNode in="glow_cyan"/>
+        <feMergeNode in="glow_magenta"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="f_text_glow">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur1"/>
+        <feComponentTransfer in="blur1" result="glow_comp">
+            <feFuncA type="linear" slope="3"/>
+        </feComponentTransfer>
+        <feMerge>
+            <feMergeNode in="glow_comp"/>
+            <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+    </filter>
+
+    <!-- Gradient Definitions -->
+    <radialGradient id="g_bg_radial" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:rgb(5, 5, 20); stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(0, 0, 0); stop-opacity:1" />
+    </radialGradient>
+    
+    <linearGradient id="g_neon_cyan_magenta" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(0, 255, 255); stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgb(150, 0, 255); stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255, 0, 150); stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="g_electric_grid" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00FFFF" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#39FF14" stop-opacity="0.8"/>
+    </linearGradient>
+    
+  </defs>
+
+  <!-- 1. Background (Deep Dark Obsidian) -->
+  <rect width="1280" height="720" fill="url(#g_bg_radial)"/>
+
+  <!-- 2. Complex Cyberpunk Grid / Network Visualization Base Layer (Subtle, large scale) -->
+  <g opacity="0.3" stroke-width="1.5" stroke="url(#g_electric_grid)">
+      <!-- Large sweeping arcs -->
+      <path d="M 100 0 C 400 300, 900 600, 1180 720" fill="none" stroke-dasharray="10 20"/>
+      <path d="M 0 360 C 300 100, 980 100, 1280 360" fill="none" stroke-dasharray="20 10"/>
+      <path d="M 1280 0 L 0 720" fill="none" stroke-dasharray="5 5"/>
+      
+      <!-- Central Node Structure -->
+      <g transform="translate(640, 360)">
+          <path d="M -400 0 L 400 0 M 0 -220 L 0 220" fill="none"/>
+          <circle cx="0" cy="0" r="150" fill="none" stroke-dasharray="1 10"/>
+      </g>
+  </g>
+
+  <!-- 3. Central Glassmorphic Data Core Structure (Rhombus/Panel) -->
+  <g transform="translate(640, 360)">
+      <!-- Soft base glow layer -->
+      <rect x="-400" y="-200" width="800" height="400" rx="40" fill="url(#g_neon_cyan_magenta)" opacity="0.15" filter="url(#f_bloom)"/>
+      
+      <!-- Glass panel effect (Dark core) -->
+      <rect x="-380" y="-190" width="760" height="380" rx="35" fill="rgba(10, 10, 30, 0.7)" stroke="url(#g_neon_cyan_magenta)" stroke-width="4" />
+      
+      <!-- Internal holographic grid -->
+      <g stroke="#00FFFF" opacity="0.4" stroke-width="1">
+          <line x1="-350" y1="120" x2="350" y2="120" stroke-dasharray="5 5"/>
+          <line x1="-350" y1="-120" x2="350" y2="-120" stroke-dasharray="5 5"/>
+          <line x1="-150" y1="-190" x2="-150" y2="190"/>
+          <line x1="150" y1="-190" x2="150" y2="190"/>
+      </g>
+      
+      <!-- Central Focus Icon: Security Assessment Shield/Lock -->
+      <g transform="translate(0, 0)" fill="none" stroke-width="6" stroke="url(#g_neon_cyan_magenta)">
+          <!-- Shield shape outline -->
+          <path d="M 0 -130 L -100 -20 V 60 C -100 110, 0 140, 0 140 C 0 140, 100 110, 100 60 V -20 Z" 
+                fill="rgba(10, 10, 30, 0.9)" filter="url(#f_bloom)"/>
+          
+          <!-- Inner Lock Symbol -->
+          <g transform="translate(0, 30)" stroke="#FFFFFF" stroke-width="4" filter="url(#f_text_glow)">
+              <rect x="-30" y="-10" width="60" height="40" fill="#111133"/>
+              <path d="M -30 -10 V -30 C -30 -50, -10 -70, 0 -70 C 10 -70, 30 -50, 30 -30 V -10" fill="none"/>
+              <circle cx="0" cy="15" r="4" fill="#00FFFF"/>
+          </g>
+      </g>
+      
+  </g>
+
+  <!-- 4. Text Display (High Contrast Neon) -->
+  <text x="640" y="360" font-family="'Consolas', monospace, sans-serif" font-weight="bold" text-anchor="middle">
+      <tspan x="640" y="270" style="font-size: 28pt; fill: #39FF14; opacity: 0.9;">[SYSTEM STATUS: VULNERABILITY MATRIX ONLINE]</tspan>
+      
+      <tspan x="640" y="460" style="font-size: 72pt; letter-spacing: 4px;" 
+             fill="url(#g_neon_cyan_magenta)" filter="url(#f_text_glow)">
+          -NETWORK-SECURITY-ASSESSMENT
+      </tspan>
+  </text>
+  
+  <!-- 5. Dynamic Data Stream Lines (Fast Moving, high frequency) -->
+  <g stroke="#FF00FF" stroke-width="2" opacity="0.6" stroke-dasharray="2 10">
+      <line x1="10" y1="10" x2="600" y2="300"/>
+      <line x1="1270" y1="10" x2="700" y2="300"/>
+      <line x1="10" y1="710" x2="600" y2="420"/>
+      <line x1="1270" y1="710" x2="700" y2="420"/>
+  </g>
+  
+  <!-- 6. Edge Accents (Glowing bars) -->
+  <rect x="0" y="358" width="1280" height="4" fill="url(#g_neon_cyan_magenta)" opacity="0.4" filter="url(#f_bloom)"/>
+  
+  <rect x="638" y="0" width="4" height="720" fill="url(#g_neon_cyan_magenta)" opacity="0.4" filter="url(#f_bloom)"/>
+  
+  <!-- Corner details -->
+  <g stroke="#00FFFF" stroke-width="2" opacity="0.8">
+      <polyline points="20,20 150,20 150,40" fill="none"/>
+      <polyline points="1260,20 1130,20 1130,40" fill="none"/>
+      <polyline points="20,700 150,700 150,680" fill="none"/>
+      <polyline points="1260,700 1130,700 1130,680" fill="none"/>
+  </g>
+
+</svg>

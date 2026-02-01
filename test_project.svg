@@ -1,0 +1,87 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient for subtle depth -->
+    <radialGradient id="BG_Grad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#110022;"/>
+      <stop offset="100%" style="stop-color:#000000;"/>
+    </radialGradient>
+
+    <!-- Neon Blue Gradient -->
+    <linearGradient id="NeonBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFFF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0044FF;stop-opacity:1"/>
+    </linearGradient>
+
+    <!-- Neon Purple Gradient -->
+    <linearGradient id="NeonPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CC00FF;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#6600FF;stop-opacity:1"/>
+    </linearGradient>
+
+    <!-- Combined Cyber Gradient (for central fill - transparent dark matter) -->
+    <radialGradient id="CyberFill" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+        <stop offset="0%" style="stop-color:#00FFFF; stop-opacity:0.2;"/>
+        <stop offset="50%" style="stop-color:#9933FF; stop-opacity:0.1;"/>
+        <stop offset="100%" style="stop-color:#000000; stop-opacity:0.05;"/>
+    </radialGradient>
+
+    <!-- Filter for soft neon glow effect (used for outlines) -->
+    <filter id="Glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur4"/>
+      <feMerge>
+        <feMergeNode in="blur4"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+     <!-- Filter for heavy central glow -->
+     <filter id="HeavyGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur8"/>
+      <feMerge>
+        <feMergeNode in="blur8"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. Background -->
+  <rect width="1280" height="720" fill="url(#BG_Grad)"/>
+
+  <!-- 2. Concentric Hexagon Rings (Subtle background details) -->
+  <g fill="none" stroke-opacity="0.3" transform="translate(640, 360)" filter="url(#Glow)">
+      <!-- Large Hexagon (r=300) - Rotated -->
+      <polygon points="300,0 150,259.8 -150,259.8 -300,0 -150,-259.8 150,-259.8" stroke="url(#NeonBlue)" stroke-width="1.5" transform="rotate(30)"/>
+      <!-- Medium Hexagon (r=200) -->
+      <polygon points="200,0 100,173.2 -100,173.2 -200,0 -100,-173.2 100,-173.2" stroke="url(#NeonPurple)" stroke-width="1.2"/>
+  </g>
+
+  <!-- 3. Central Fill (Stealth body) -->
+  <polygon points="640 200, 840 360, 640 520, 440 360" fill="url(#CyberFill)" stroke="none"/>
+
+  <!-- 4. Digital Flow Lines and Data Breaks -->
+  <g stroke-width="1.5" stroke-opacity="0.7">
+      <!-- Diagonal Data Streams -->
+      <line x1="100" y1="260" x2="1180" y2="460" stroke="url(#NeonPurple)" filter="url(#Glow)"/>
+      <line x1="100" y1="460" x2="1180" y2="260" stroke="url(#NeonBlue)" filter="url(#Glow)"/>
+      
+      <!-- Central Data Core Indicator (Small glowing bars) -->
+      <rect x="635" y="350" width="10" height="20" fill="#00FFFF" opacity="0.6" filter="url(#Glow)"/>
+      <rect x="635" y="350" width="10" height="20" fill="#9933FF" opacity="0.6" transform="rotate(90 640 360)" filter="url(#Glow)"/>
+  </g>
+
+  <!-- 5. Core "Stealth" Geometry Outlines -->
+
+  <!-- Outer Shell (Purple Glow) -->
+  <polyline points="640 100, 940 360, 640 620, 340 360, 640 100"
+            fill="none" stroke="url(#NeonPurple)" stroke-width="4" filter="url(#Glow)"/>
+
+  <!-- Inner Stealth Core (Blue Glow) -->
+  <polyline points="640 200, 840 360, 640 520, 440 360, 640 200"
+            fill="none" stroke="url(#NeonBlue)" stroke-width="3" filter="url(#Glow)"/>
+            
+  <!-- 6. Central Processor/Focus Point -->
+  <circle cx="640" cy="360" r="4" fill="#FFFFFF" filter="url(#HeavyGlow)"/>
+
+  <!-- Vertical Core Line (strong light source) -->
+  <rect x="639" y="300" width="2" height="120" fill="#FFFFFF" opacity="0.9" filter="url(#HeavyGlow)"/>
+  <rect x="635" y="300" width="10" height="120" fill="url(#NeonBlue)" opacity="0.3"/>
+</svg>

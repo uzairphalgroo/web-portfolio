@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { portfolioData } from "../data/portfolio";
 
 export default function Footer() {
     return (
@@ -27,7 +28,7 @@ export default function Footer() {
                         About Me
                     </Link>
                     <a
-                        href="mailto:contact@example.com"
+                        href={`mailto:${portfolioData.personal.email}`}
                         className="text-gray-400 hover:text-white transition-colors text-sm uppercase tracking-wider"
                     >
                         Email
